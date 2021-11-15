@@ -1,0 +1,16 @@
+[Unit]
+Description=Kurohai's React App Service Unit File
+After=network-online.target
+
+
+[Service]
+#Type=forking
+Restart=always
+User=eburt
+WorkingDirectory=/mnt/knas-data-01/production/new-reaction
+ExecStart=/mnt/knas-data-01/production/new-reaction/run.sh
+ExecStop=/bin/kill -s TERM $MAINPID
+
+
+[Install]
+WantedBy=multi-user.target
